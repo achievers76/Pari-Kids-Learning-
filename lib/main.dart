@@ -1,21 +1,21 @@
 import 'dart:math';
-import 'lkg_maths_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'lkg_maths_screen.dart';
 
 void main() {
-  runApp(const SamsadKidsLkgApp());
+  runApp(const PariKidsLkgApp());
 }
 
-class SamsadKidsLkgApp extends StatelessWidget {
-  const SamsadKidsLkgApp({super.key});
+class PariKidsLkgApp extends StatelessWidget {
+  const PariKidsLkgApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pari Kids - ICSE LKG English',
+      title: 'Pari Kids - ICSE LKG',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -41,7 +41,6 @@ class VoiceHelper {
   }
 }
 
-// LottieFiles.com Free Public CDN Links + Fallback Emojis
 class LkgData {
   static const List> alphabet = [
     {"cap": "A", "small": "a", "word": "Apple", "phonics": "Aaa", "emoji": "🍎", "lottie": "https://assets2.lottiefiles.com/packages/lf20_touohxv0.json"},
@@ -95,7 +94,6 @@ class LkgData {
   ];
 }
 
-// Reusable Safe Lottie + Emoji Widget
 class SmartLottieBox extends StatelessWidget {
   final String url;
   final String fallbackEmoji;
@@ -129,7 +127,7 @@ class SmartLottieBox extends StatelessWidget {
   }
 }
 
-// ==================== HOME SCREEN (6 CHAPTER CARDS) ====================
+// ==================== HOME SCREEN (ENGLISH + MATHS) ====================
 
 class LkgSyllabusHomeScreen extends StatelessWidget {
   const LkgSyllabusHomeScreen({super.key});
@@ -206,7 +204,7 @@ class LkgSyllabusHomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      "Samsad Kids • ICSE LKG English",
+                      "Pari Kids • ICSE LKG App",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF0D47A1),
@@ -215,15 +213,37 @@ class LkgSyllabusHomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    "Namaste Beta! Aao English Seekhte Hain",
+                    "Namaste Beta! Aao Seekhte Hain",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
-                      fontSize: isTablet ? 30 : 22,
+                      fontSize: isTablet ? 28 : 21,
                       fontWeight: FontWeight.w800,
                       color: const Color(0xFF0D47A1),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 10),
+                  // Maths Section Button
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      VoiceHelper.speak("Chalo L K G Maths me chalte hain");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const LkgMathsScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF43A047),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+                    ),
+                    icon: const Icon(Icons.calculate_rounded),
+                    label: Text(
+                      "LKG Maths Section Kholo (1-20 & Games)",
+                      style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
                   Expanded(
                     child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -347,7 +367,6 @@ class _Chapter1AlphabetScreenState extends State<Chapter1AlphabetScreen> {
       ),
       body: Column(
         children: [
-          // Top Animated Showcase Card
           Container(
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(20),
@@ -392,7 +411,6 @@ class _Chapter1AlphabetScreenState extends State<Chapter1AlphabetScreen> {
             style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16, color: const Color(0xFF0D47A1)),
           ),
           const SizedBox(height: 8),
-          // A-Z Grid
           Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.all(14),
@@ -482,7 +500,6 @@ class _Chapter2TracingScreenState extends State<Chapter2TracingScreen> {
               style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.bold, color: const Color(0xFF0D47A1)),
             ),
             const SizedBox(height: 12),
-            // Tracing Board
             Expanded(
               child: Container(
                 width: double.infinity,
@@ -494,7 +511,6 @@ class _Chapter2TracingScreenState extends State<Chapter2TracingScreen> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    // Dotted Guide Letter
                     Text(
                       item["small"]!,
                       style: GoogleFonts.poppins(
@@ -503,7 +519,6 @@ class _Chapter2TracingScreenState extends State<Chapter2TracingScreen> {
                         color: Colors.grey.shade300,
                       ),
                     ),
-                    // Finger Drawing Canvas
                     GestureDetector(
                       onPanUpdate: (details) => _onDraw(details.localPosition),
                       onPanEnd: (_) => _points.add(null),
@@ -512,7 +527,6 @@ class _Chapter2TracingScreenState extends State<Chapter2TracingScreen> {
                         size: Size.infinite,
                       ),
                     ),
-                    // Animated Reward on Writing
                     if (_completed)
                       Positioned(
                         top: 16,
@@ -643,7 +657,6 @@ class _Chapter3PhonicsScreenState extends State<Chapter3PhonicsScreen> {
         ),
         body: TabBarView(
           children: [
-            // Tab 1: All Phonics Buttons
             GridView.builder(
               padding: const EdgeInsets.all(14),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -674,7 +687,6 @@ class _Chapter3PhonicsScreenState extends State<Chapter3PhonicsScreen> {
                 );
               },
             ),
-            // Tab 2: Listen & Tap Picture Game
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -904,7 +916,6 @@ void _showStarCelebration(BuildContext context, VoidCallback onNext) {
   );
 }
 
-// Test 1: Missing Letter
 class _MissingLetterGame extends StatefulWidget {
   const _MissingLetterGame();
 
@@ -918,7 +929,7 @@ class _MissingLetterGameState extends State<_MissingLetterGame> {
   @override
   Widget build(BuildContext context) {
     final item = LkgData.threeLetterWords[_wordIdx];
-    final word = item["word"]!; // e.g., CAT -> C _ T
+    final word = item["word"]!;
     final missingChar = word[1];
     final options = [missingChar, "O", "E"].toSet().toList()..shuffle();
     if (options.length < 3) options.add("U");
@@ -958,7 +969,6 @@ class _MissingLetterGameState extends State<_MissingLetterGame> {
   }
 }
 
-// Test 2: Jodi Milao (Match Letter to Picture)
 class _MatchPairsGame extends StatefulWidget {
   const _MatchPairsGame();
 
@@ -968,7 +978,7 @@ class _MatchPairsGame extends StatefulWidget {
 
 class _MatchPairsGameState extends State<_MatchPairsGame> {
   String? _selectedLetter;
-  final List<int> _indices = [0, 1, 2, 3]; // A, B, C, D
+  final List<int> _indices = [0, 1, 2, 3];
 
   @override
   Widget build(BuildContext context) {
@@ -1028,7 +1038,6 @@ class _MatchPairsGameState extends State<_MatchPairsGame> {
   }
 }
 
-// Test 3: Sahi Picture Dabao
 class _ChoosePictureGame extends StatefulWidget {
   const _ChoosePictureGame();
 
