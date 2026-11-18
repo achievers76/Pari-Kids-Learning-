@@ -23,10 +23,15 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          cache: true
 
-      - name: Get Dependencies and Build APK
+      - name: Clean & Get Dependencies
         run: |
+          flutter clean
           flutter pub get
+
+      - name: Build Release APK
+        run: |
           flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK
