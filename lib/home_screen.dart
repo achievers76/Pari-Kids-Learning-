@@ -73,7 +73,7 @@ class _SamsadKidsHomeScreenState extends State<SamsadKidsHomeScreen> {
                       border: Border.all(color: Colors.orange.shade300),
                     ),
                     child: Text(
-                      "Samsad Kids",
+                      "Pari Kids",
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
