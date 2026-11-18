@@ -14,7 +14,7 @@ class SamsadKidsLkgApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Samsad Kids - ICSE LKG English',
+      title: 'Pari Kids - ICSE LKG English',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
