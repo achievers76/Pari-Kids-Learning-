@@ -11,7 +11,7 @@ class SamsadKidsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Samsad Kids',
+      title: 'Pari Kids',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
