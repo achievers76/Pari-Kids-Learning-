@@ -165,8 +165,6 @@ class LkgMathsScreen extends StatelessWidget {
   }
 }
 
-// ==================== SHARED MATHS VOICE & DATA ====================
-
 class MathsVoice {
   static final FlutterTts _tts = FlutterTts();
 
@@ -259,8 +257,6 @@ class MathsData {
     },
   ];
 }
-
-// ==================== CHAPTER 1: NUMBERS 1 - 20 ====================
 
 class MathsChapter1NumbersScreen extends StatefulWidget {
   const MathsChapter1NumbersScreen({super.key});
@@ -369,8 +365,6 @@ class _MathsChapter1NumbersScreenState extends State<MathsChapter1NumbersScreen>
     );
   }
 }
-
-// ==================== CHAPTER 2: NUMBER TRACING 1 - 10 ====================
 
 class MathsChapter2TracingScreen extends StatefulWidget {
   const MathsChapter2TracingScreen({super.key});
@@ -510,8 +504,6 @@ class _MathsTracePainter extends CustomPainter {
   bool shouldRepaint(_MathsTracePainter old) => true;
 }
 
-// ==================== CHAPTER 3: COUNT & TAP GAME ====================
-
 class MathsChapter3CountingGame extends StatefulWidget {
   const MathsChapter3CountingGame({super.key});
 
@@ -601,8 +593,6 @@ class _MathsChapter3CountingGameState extends State<MathsChapter3CountingGame> {
   }
 }
 
-// ==================== CHAPTER 4: SHAPES ====================
-
 class MathsChapter4ShapesScreen extends StatelessWidget {
   const MathsChapter4ShapesScreen({super.key});
 
@@ -654,8 +644,6 @@ class MathsChapter4ShapesScreen extends StatelessWidget {
     );
   }
 }
-
-// ==================== CHAPTER 5: PRE-MATH CONCEPTS ====================
 
 class MathsChapter5ConceptsScreen extends StatefulWidget {
   const MathsChapter5ConceptsScreen({super.key});
@@ -748,8 +736,6 @@ class _MathsChapter5ConceptsScreenState extends State<MathsChapter5ConceptsScree
     );
   }
 }
-
-// ==================== CHAPTER 6: MATHS TEST (3 GAMES) ====================
 
 class MathsChapter6TestHub extends StatelessWidget {
   const MathsChapter6TestHub({super.key});
