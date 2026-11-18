@@ -27,8 +27,6 @@ class PariKidsLkgApp extends StatelessWidget {
   }
 }
 
-// ==================== SHARED TTS & DATA ====================
-
 class VoiceHelper {
   static final FlutterTts _tts = FlutterTts();
 
@@ -127,8 +125,6 @@ class SmartLottieBox extends StatelessWidget {
   }
 }
 
-// ==================== HOME SCREEN (ENGLISH + MATHS) ====================
-
 class LkgSyllabusHomeScreen extends StatelessWidget {
   const LkgSyllabusHomeScreen({super.key});
 
@@ -222,7 +218,6 @@ class LkgSyllabusHomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  // Maths Section Button
                   ElevatedButton.icon(
                     onPressed: () {
                       VoiceHelper.speak("Chalo L K G Maths me chalte hain");
@@ -331,8 +326,6 @@ class LkgSyllabusHomeScreen extends StatelessWidget {
     );
   }
 }
-
-// ==================== CHAPTER 1: CAPITAL A-Z ====================
 
 class Chapter1AlphabetScreen extends StatefulWidget {
   const Chapter1AlphabetScreen({super.key});
@@ -448,8 +441,6 @@ class _Chapter1AlphabetScreenState extends State<Chapter1AlphabetScreen> {
   }
 }
 
-// ==================== CHAPTER 2: SMALL a-z TRACING ====================
-
 class Chapter2TracingScreen extends StatefulWidget {
   const Chapter2TracingScreen({super.key});
 
@@ -468,7 +459,7 @@ class _Chapter2TracingScreenState extends State<Chapter2TracingScreen> {
       if (_points.length > 25 && !_completed) {
         _completed = true;
         final item = LkgData.alphabet[_index];
-        VoiceHelper.speak("Shabash! Bahut Achha! ${item['small']} for ${item['word']}");
+        VoiceHelper.speak("Shabash! Bahut Achha! ${item['small']} for${item['word']}");
       }
     });
   }
@@ -595,8 +586,6 @@ class _TracingPainter extends CustomPainter {
   bool shouldRepaint(_TracingPainter oldDelegate) => true;
 }
 
-// ==================== CHAPTER 3: PHONICS + GAME ====================
-
 class Chapter3PhonicsScreen extends StatefulWidget {
   const Chapter3PhonicsScreen({super.key});
 
@@ -627,7 +616,7 @@ class _Chapter3PhonicsScreenState extends State<Chapter3PhonicsScreen> {
 
   void _playTargetSound() {
     final item = LkgData.alphabet[_targetIndex];
-    VoiceHelper.speak("${item['cap']} says ${item['phonics']}, ${item['word']}");
+    VoiceHelper.speak("${item['cap']} says ${item['phonics']},${item['word']}");
   }
 
   void _checkChoice(int chosenIndex) {
@@ -668,7 +657,7 @@ class _Chapter3PhonicsScreenState extends State<Chapter3PhonicsScreen> {
               itemBuilder: (context, index) {
                 final item = LkgData.alphabet[index];
                 return InkWell(
-                  onTap: () => VoiceHelper.speak("${item['cap']} says ${item['phonics']}, ${item['word']}"),
+                  onTap: () => VoiceHelper.speak("${item['cap']} says ${item['phonics']},${item['word']}"),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -678,7 +667,7 @@ class _Chapter3PhonicsScreenState extends State<Chapter3PhonicsScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("${item['cap']} / ${item['small']}", style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold)),
+                        Text("${item['cap']} /${item['small']}", style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold)),
                         Text("\"${item['phonics']}\"", style: GoogleFonts.poppins(fontSize: 16, color: Colors.deepOrange, fontWeight: FontWeight.w600)),
                         const Icon(Icons.volume_up, color: Colors.blue),
                       ],
@@ -738,8 +727,6 @@ class _Chapter3PhonicsScreenState extends State<Chapter3PhonicsScreen> {
   }
 }
 
-// ==================== CHAPTER 4: 3-LETTER WORDS ====================
-
 class Chapter4ThreeLetterScreen extends StatelessWidget {
   const Chapter4ThreeLetterScreen({super.key});
 
@@ -764,7 +751,7 @@ class Chapter4ThreeLetterScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final item = LkgData.threeLetterWords[index];
           return InkWell(
-            onTap: () => VoiceHelper.speak("${item['letters']} ... ${item['word']}"),
+            onTap: () => VoiceHelper.speak("${item['letters']} ...${item['word']}"),
             borderRadius: BorderRadius.circular(24),
             child: Container(
               padding: const EdgeInsets.all(12),
@@ -790,8 +777,6 @@ class Chapter4ThreeLetterScreen extends StatelessWidget {
   }
 }
 
-// ==================== CHAPTER 5: SIGHT WORDS ====================
-
 class Chapter5SightWordsScreen extends StatelessWidget {
   const Chapter5SightWordsScreen({super.key});
 
@@ -813,7 +798,7 @@ class Chapter5SightWordsScreen extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 14),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
             child: InkWell(
-              onTap: () => VoiceHelper.speak("${item['word']} ... ${item['sentence']}"),
+              onTap: () => VoiceHelper.speak("${item['word']} ...${item['sentence']}"),
               borderRadius: BorderRadius.circular(22),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -848,8 +833,6 @@ class Chapter5SightWordsScreen extends StatelessWidget {
     );
   }
 }
-
-// ==================== CHAPTER 6: 3 TESTS WITH STAR REWARD ====================
 
 class Chapter6TestHubScreen extends StatelessWidget {
   const Chapter6TestHubScreen({super.key});
@@ -943,7 +926,7 @@ class _MissingLetterGameState extends State<_MissingLetterGame> {
           const SizedBox(height: 16),
           SmartLottieBox(url: item["lottie"]!, fallbackEmoji: item["emoji"]!, size: 120),
           const SizedBox(height: 16),
-          Text("${word[0]}  _  ${word[2]}", style: GoogleFonts.poppins(fontSize: 44, fontWeight: FontWeight.w900, color: const Color(0xFF0D47A1))),
+          Text("${word[0]}  _${word[2]}", style: GoogleFonts.poppins(fontSize: 44, fontWeight: FontWeight.w900, color: const Color(0xFF0D47A1))),
           const SizedBox(height: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
