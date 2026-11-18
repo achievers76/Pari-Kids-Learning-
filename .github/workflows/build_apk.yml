@@ -1,4 +1,4 @@
-name: Build Samsad Kids APK
+name: Build Pari Kids APK
 
 on:
   push:
@@ -27,7 +27,8 @@ jobs:
       - name: Generate Android files & Assets folder
         run: |
           mkdir -p assets/lottie
-          flutter create --platforms=android --project-name samsad_kids .
+          flutter create --platforms=android --project-name pari_kids .
+          sed -i 's/android:label="kids"/android:label="Pari Kids"/g' android/app/src/main/AndroidManifest.xml
 
       - name: Get dependencies
         run: flutter pub get
@@ -38,6 +39,6 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Samsad-Kids-App
+          name: Pari-Kids-App
           path: build/app/outputs/flutter-apk/app-release.apk
           
