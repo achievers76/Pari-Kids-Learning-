@@ -24,17 +24,10 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Generate Android files, Permissions & App Name
+      - name: Get Flutter Dependencies & Build APK
         run: |
-          mkdir -p assets/lottie
-          flutter create --platforms=android --project-name pari_kids .
-          python3 -c 'p="android/app/src/main/AndroidManifest.xml"; s=open(p).read().replace("android:label=\"kids\"", "android:label=\"Pari Kids\"").replace("<application", "<uses-permission android:name=\"android.permission.INTERNET\"/>\n    <application", 1); open(p,"w").write(s)'
-
-      - name: Get dependencies
-        run: flutter pub get
-
-      - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons
+          flutter pub get
+          flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
