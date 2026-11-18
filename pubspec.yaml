@@ -1,5 +1,5 @@
-name: samsad_kids
-description: A fun learning app for kids.
+name: pari_kids
+description: Pari Kids ICSE LKG Learning App
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^6.1.0
-  lottie: ^3.1.0
+  google_fonts: ^6.2.1
+  lottie: ^3.1.2
   flutter_tts: ^4.0.2
 
 dev_dependencies:
@@ -20,6 +20,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/lottie/
-    
