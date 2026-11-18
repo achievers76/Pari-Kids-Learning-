@@ -532,7 +532,7 @@ class _MathsChapter3CountingGameState extends State<MathsChapter3CountingGame> {
 
   void _newRound() {
     final rand = Random();
-    _targetCount = rand.nextInt(9) + 1; // 1 to 9
+    _targetCount = rand.nextInt(9) + 1;
     _emoji = MathsData.numbers[rand.nextInt(10)]["emoji"];
     Set<int> opts = {_targetCount};
     while (opts.length < 3) {
@@ -813,7 +813,6 @@ void _showMathsStarReward(BuildContext context, VoidCallback onNext) {
   );
 }
 
-// Game 1: Missing Number (1, _, 3)
 class _MissingNumberGame extends StatefulWidget {
   const _MissingNumberGame();
 
@@ -860,7 +859,6 @@ class _MissingNumberGameState extends State<_MissingNumberGame> {
   }
 }
 
-// Game 2: Jodi Milao (Number to Objects)
 class _NumberMatchGame extends StatefulWidget {
   const _NumberMatchGame();
 
@@ -928,7 +926,6 @@ class _NumberMatchGameState extends State<_NumberMatchGame> {
   }
 }
 
-// Game 3: Easy Picture Addition
 class _EasyAdditionGame extends StatefulWidget {
   const _EasyAdditionGame();
 
